@@ -13,23 +13,20 @@ function App() {
     {id: '1', type: 'primary', label: 'Continue', onClick: continueFunction},
     {id: '2', type: 'danger', label: 'Close', onClick: cancel}
   ];
- // className="btn btn-warning me-2"
+
   return (
-    <>
-      <div className="container m-3">
-        <Alert show={showFirstAlert} type="warning" onDismiss={() => setShowFirstAlert(false)}>This is a warning type alert</Alert>
-        <Alert show={showSecondAlert} type="success">This is a success type alert</Alert>
-        <button className="btn btn-primary me-2" onClick={() => setShowModal(true)}>Show modal</button>
-        <button className="btn btn-warning me-2" onClick={() => setShowFirstAlert(true)}>Show first alert</button>
-        <button className="btn btn-success me-2" onClick={() => setShowSecondAlert(true)}>Show second alert</button>
-        <Modal show={showModal} title="Some kind a modal title" onClose={cancel} buttons={buttonArray}>
+    <div className="container m-3">
+      <Alert show={showFirstAlert} type="warning" onDismiss={() => setShowFirstAlert(false)}>This is a warning type alert</Alert>
+      <Alert show={showSecondAlert} type="success" clickDismissible onDismiss={() => setShowSecondAlert(false)}>This is a success type alert</Alert>
+      <button className="btn btn-primary me-2" onClick={() => setShowModal(true)}>Show modal</button>
+      <button className="btn btn-warning me-2" onClick={() => setShowFirstAlert(true)}>Show first alert</button>
+      <button className="btn btn-success me-2" onClick={() => setShowSecondAlert(true)}>Show second alert</button>
+      <Modal show={showModal} title="Some kind a modal title" onClose={cancel} buttons={buttonArray}>
           <div className="modal-body">
             This is a modal content
           </div>
         </Modal>
-      </div>
-    </>
-
+    </div>
   );
 }
 
